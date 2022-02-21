@@ -14,7 +14,7 @@ OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(IFLAG) -c $^ -o $@
 
-$(OUT_DIR)/$(NAME): $(OBJ)
+$(OUT_DIR)/$(NAME): $(OBJ) | $(OUT_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 
 $(OUT_DIR):
