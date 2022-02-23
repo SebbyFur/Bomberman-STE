@@ -1,12 +1,16 @@
 #include <iostream>
 #include "Map.hpp"
+#include "Config.hpp"
+#include "TileConfig.hpp"
 #include <fstream>
 
-using namespace std;
 
 int main(void) {
-    Map map("./maps/map.bbm");
-    cout << map << endl;
+    Config c("config.txt");
+
+    std::map<std::string, TileConfig>* b = c.getTiles();
+
+    std::cout << (*b)["PLAYER"] << std::endl;
 
     return 0;
 }
