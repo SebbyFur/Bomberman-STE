@@ -12,6 +12,7 @@ class Config {
         Config(std::string fileName);
         static std::map<std::string, TileConfig> defaultTiles;
         std::map<std::string, TileConfig>* getTiles();
+        void rm_spaces(std::string& str);
 };
 
 #endif
