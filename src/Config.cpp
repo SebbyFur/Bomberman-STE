@@ -28,6 +28,7 @@ std::map<std::string, TileConfig> Config::defaultTiles {
 // Ici, on a le constructeur. On passe en paramètre le chemin relatif vers le fichier de configuration
 Config::Config(std::string fileName) {
     std::fstream file(fileName);
+    if (!file) throw std::invalid_argument("Ouverture du fichier impossible ou fichier inexistant");
     std::string tmp;
     int line = 1;
 
@@ -37,13 +38,13 @@ Config::Config(std::string fileName) {
         int i = tmp.find("=");
 
         if (i == -1 || static_cast<size_t>(i) == tmp.size() - 1)
-            throw std::invalid_argument(std::string("Configuration incomplète ou incorrecte : ligne ") + std::to_string(line) + " " + tmp);
+            throw std::invalid_argument("Configuration incomplète ou incorrecte : ligne " + std::to_string(line));
 
         std::string key = tmp.substr(0, i);
         char ch = tmp[i + 1];
         std::string color = tmp.substr(i + 2, tmp.size());
 
-        // Si la clé n'est pas dans l'objet tiles, alors on l'ajoute avec son caractère et sa clé. Sinon, on n'ajoute rien
+        // Si la clé n'est pas dans l'objet tiles, alors on l'ajoute avec son caractère et sa couleur. Sinon, on n'ajoute rien
         if (tiles.find(key) == tiles.end()) {
             tiles.insert(std::pair<std::string, TileConfig>(key, TileConfig(ch, color)));
         }

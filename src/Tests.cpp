@@ -5,6 +5,7 @@
 #include <fstream>
 
 
+
 int main(void) {
     Config c("config.txt");
 
