@@ -3,7 +3,7 @@
 #include <iostream>
 
 TileConfig::TileConfig(char ch, const std::string& color) : ch(ch), color(color) {
-    this->color = "WHITE";
+    //
 }
 
 char TileConfig::getChar() const {

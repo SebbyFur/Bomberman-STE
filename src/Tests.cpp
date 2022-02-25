@@ -10,7 +10,8 @@ int main(void) {
 
     std::map<std::string, TileConfig>* b = c.getTiles();
 
-    std::cout << (*b)["PLAYER"] << std::endl;
+    for (std::map<std::string, TileConfig>::iterator it=b->begin(); it!=b->end(); ++it)
+    std::cout << it->first << " => " << (it->second).getChar() << '\n';
 
     return 0;
 }
