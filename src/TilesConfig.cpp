@@ -68,7 +68,7 @@ TilesConfig::TilesConfig(std::string fileName) {
     for (auto& x : tiles) {
         if (x.second == NULL) {
             x.second = new TileConfigValue(x.first.getChar());
-            file << x.first.getStr() + " = " + x.second->to_str2() << std::endl;
+            file << x.first.getStr() + " = " + x.second->getChar() + " WHITE" << std::endl;
         }
     }
 }
