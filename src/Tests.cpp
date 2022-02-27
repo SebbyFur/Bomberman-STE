@@ -1,18 +1,11 @@
-#include <iostream>
 #include "Map.hpp"
-#include "Config.hpp"
-#include "TileConfig.hpp"
+#include <iostream>
 #include <fstream>
+#include <map>
+#include <memory>
 
-
-
-int main(void) {
-    Config c("config.txt");
-
-    std::map<std::string, TileConfig>* b = c.getTiles();
-
-    for (std::map<std::string, TileConfig>::iterator it=b->begin(); it!=b->end(); ++it)
-    std::cout << it->first << " => " << (it->second).getChar() << '\n';
+int main() {
+    Map a("map.txt");
 
     return 0;
 }

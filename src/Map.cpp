@@ -1,14 +1,24 @@
 #include "Map.hpp"
-#include "Colors.hpp"
+#include "TilesConfig.hpp"
+#include <iostream>
 #include <fstream>
-#include <string>
 
 Map::Map(std::string path) {
     std::ifstream file(path);
+    TilesConfig config("config.txt");
     std::string buffer;
     while (std::getline(file, buffer)) {
-        this->map += buffer + "\n";
+        for (auto& x : buffer) {
+            if (x != '\r') {
+                std::string r = "RESET";
+                std::cout << config[x] << Colors::getColor(r);
+            } else {
+                std::cout << std::endl;
+            }
+        }
     }
+    std::cout << std::endl;
+
     file.close();
 }
 

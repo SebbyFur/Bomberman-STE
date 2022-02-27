@@ -2,6 +2,7 @@
 #define _MAP_
 
 #include <string>
+#include <map>
 
 class Map {
     private:
