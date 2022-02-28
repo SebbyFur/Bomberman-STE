@@ -71,6 +71,8 @@ TilesConfig::TilesConfig(std::string fileName) {
             file << x.first.getStr() + " = " + x.second->getChar() + " WHITE" << std::endl;
         }
     }
+
+    file.close();
 }
 
 TilesConfig::~TilesConfig() {

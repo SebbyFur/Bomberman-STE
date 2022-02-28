@@ -27,3 +27,4 @@ $(OBJ_DIR):
 
 clean:
 	rm -rf $(OBJ_DIR)
+	rm $(OUT_DIR)/$(NAME)
