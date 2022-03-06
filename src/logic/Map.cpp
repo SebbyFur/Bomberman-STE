@@ -1,5 +1,5 @@
-#include "Map.hpp"
-#include "TilesConfig.hpp"
+#include "logic/Map.hpp"
+#include "config/TilesConfig.hpp"
 #include <iostream>
 #include <fstream>
 

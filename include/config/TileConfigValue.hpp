@@ -2,7 +2,7 @@
 #define _TILECONFIG_
 
 #include <string>
-#include "Colors.hpp"
+#include "util/Colors.hpp"
 
 class TileConfigValue {
     private:

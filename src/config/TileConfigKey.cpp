@@ -1,4 +1,4 @@
-#include "TileConfigKey.hpp"
+#include "config/TileConfigKey.hpp"
 
 TileConfigKey::TileConfigKey(std::string strKey, char charKey) : strKey(strKey), charKey(charKey) {
     //

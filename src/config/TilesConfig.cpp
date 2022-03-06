@@ -1,7 +1,5 @@
-#include "TilesConfig.hpp"
-#include "TileConfigValue.hpp"
-#include "TileConfigKey.hpp"
-#include "Colors.hpp"
+#include "config/TilesConfig.hpp"
+#include "util/Colors.hpp"
 #include <stdexcept>
 #include <fstream>
 #include <iostream>
@@ -28,7 +26,8 @@ TilesConfig::TilesConfig(std::string fileName) {
         {TileConfigKey("MOREBOMB", 'E'), NULL},
         {TileConfigKey("SPEEDUP", 'S'), NULL},
         {TileConfigKey("SCALEUP", 'R'), NULL},
-        {TileConfigKey("AIM", 'X'), NULL}
+        {TileConfigKey("AIM", 'X'), NULL},
+        {TileConfigKey("AIR", '_'), NULL}
     };
 
     std::string buffer;

@@ -1,8 +1,8 @@
 #ifndef _CONFIG_
 #define _CONFIG_
 
-#include "TileConfigKey.hpp"
-#include "TileConfigValue.hpp"
+#include "config/TileConfigKey.hpp"
+#include "config/TileConfigValue.hpp"
 #include <string>
 #include <map>
 
