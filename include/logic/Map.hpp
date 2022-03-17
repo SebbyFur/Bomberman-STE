@@ -9,6 +9,7 @@ class Map {
         std::string map;
     public:
         Map(std::string path);
+        const std::string& to_str() const;
         friend std::ostream& operator<<(std::ostream& out, const Map& map);
 };
 

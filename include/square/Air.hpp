@@ -7,6 +7,8 @@
 class Air : public Square {
     public:
         Air(TilesConfig& tiles);
+        ~Air() override;
+        bool isOpac() const override;
 };
 
 #endif

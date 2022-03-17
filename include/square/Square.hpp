@@ -9,7 +9,9 @@ class Square {
         TileConfigValue& display;
     public:
         Square(TileConfigValue& display);
+        virtual ~Square();
         friend std::ostream& operator<<(std::ostream& out, Square& square);
+        virtual bool isOpac() const = 0;
 };
 
 #endif

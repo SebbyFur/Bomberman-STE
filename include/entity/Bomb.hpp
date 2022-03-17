@@ -7,6 +7,8 @@
 class Bomb : public Entity {
     public:
         Bomb(TilesConfig& tiles);
+        ~Bomb() override;
+        bool canMoveThrough() const override;
 };
 
 #endif

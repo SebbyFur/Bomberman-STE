@@ -1,29 +1,20 @@
 #include "logic/Map.hpp"
 #include "config/TilesConfig.hpp"
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 
 Map::Map(std::string path) {
     std::ifstream file(path);
-    TilesConfig config("config.txt");
     std::string buffer;
-    while (std::getline(file, buffer)) {
-        for (auto& x : buffer) {
-            if (x != '\r') {
-                std::string r = "RESET";
-                std::cout << config[x] << Colors::getColor(r);
-            } else {
-                std::cout << std::endl;
-            }
-        }
-    }
-    std::cout << std::endl;
+    while (std::getline(file, buffer, '\r')) map += buffer;
+}
 
-    file.close();
+const std::string& Map::to_str() const {
+    return this->map;
 }
 
 std::ostream& operator<<(std::ostream& out, const Map& map) {
-    std::string strmap = map.map;
-    out << strmap;
+    out << map.map;
     return out;
 }

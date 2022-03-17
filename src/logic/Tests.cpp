@@ -2,23 +2,20 @@
 #include "util/Position.hpp"
 #include "entity/Bomb.hpp"
 #include "entity/Explosion.hpp"
+#include "square/Square.hpp"
 #include "square/Air.hpp"
 #include "config/TilesConfig.hpp"
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <typeinfo>
 #include <memory>
 
 int main() {
     TilesConfig c("config.txt");
+    Map a("map.txt");
 
-    Bomb b(c);
-    Explosion d(c);
-    Air e(c);
-
-    std::cout << b << std::endl;
-    std::cout << d << std::endl;
-    std::cout << e << std::endl;
+    std::cout << a << std::endl;
 
     return 0;
 }

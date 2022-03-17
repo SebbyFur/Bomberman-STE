@@ -9,7 +9,9 @@ class Entity {
         TileConfigValue& display;
     public:
         Entity(TileConfigValue& display);
+        virtual ~Entity();
         friend std::ostream& operator<<(std::ostream& out, Entity& entity);
+        virtual bool canMoveThrough() const = 0;
 };
 
 #endif
