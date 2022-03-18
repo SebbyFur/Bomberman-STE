@@ -1,9 +1,9 @@
 #include "config/TilesConfig.hpp"
 #include "util/Colors.hpp"
+#include "util/Util.hpp"
 #include <stdexcept>
 #include <fstream>
 #include <iostream>
-#include <algorithm>
 
 // Ici, on a le constructeur. On passe en paramètre le chemin relatif vers le fichier de configuration
 TilesConfig::TilesConfig(std::string fileName) {

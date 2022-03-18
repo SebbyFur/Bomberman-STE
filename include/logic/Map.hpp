@@ -6,7 +6,7 @@
 
 class Map {
     private:
-        std::string map;
+        std::string strmap;
     public:
         Map(std::string path);
         const std::string& to_str() const;

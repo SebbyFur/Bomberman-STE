@@ -1,4 +1,5 @@
 #include "logic/Map.hpp"
+#include "logic/Tile.hpp"
 #include "util/Position.hpp"
 #include "entity/Bomb.hpp"
 #include "entity/Explosion.hpp"
@@ -6,16 +7,16 @@
 #include "square/Air.hpp"
 #include "config/TilesConfig.hpp"
 #include <iostream>
-#include <fstream>
-#include <map>
-#include <typeinfo>
-#include <memory>
+#include <string>
 
 int main() {
     TilesConfig c("config.txt");
-    Map a("map.txt");
+    Bomb bomb(c);
+    Air air(c);
+    Tile tile(&air);
+    tile.setEntity(&bomb);
 
-    std::cout << a << std::endl;
+    std::cout << tile.canPassThrough() << std::endl;
 
     return 0;
 }
