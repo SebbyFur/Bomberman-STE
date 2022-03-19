@@ -12,6 +12,8 @@ class Tile {
         Square* square;
     public:
         Tile(Square* square);
+        Tile();
+        ~Tile();
         int canPassThrough() const;
         Explosion* getExplosion() const;
         Entity* getEntity() const;
@@ -19,6 +21,7 @@ class Tile {
         void setExplosion(Explosion* explosion);
         void setEntity(Entity* entity);
         void setSquare(Square* square);
+        friend std::ostream& operator<<(std::ostream& out, const Tile& tile);
 };
 
 #endif

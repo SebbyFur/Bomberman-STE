@@ -11,12 +11,9 @@
 
 int main() {
     TilesConfig c("config.txt");
-    Bomb bomb(c);
-    Air air(c);
-    Tile tile(&air);
-    tile.setEntity(&bomb);
+    Map map("map.txt", c);
 
-    std::cout << tile.canPassThrough() << std::endl;
+    std::cout << map << std::endl;
 
     return 0;
 }

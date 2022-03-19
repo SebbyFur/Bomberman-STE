@@ -6,6 +6,7 @@
 #include <algorithm>
 
 void rm_spaces(std::string& str);
-bool is_length_equal(std::string& str, char delim);
+int is_length_equal(std::string& str, char delim);
+int get_nb_lines(std::string& str, char ch);
 
 #endif
