@@ -1,9 +1,10 @@
 #ifndef _ENTITY_HPP_
 #define _ENTITY_HPP_
 
+#include <iostream>
+#include "util/Color.hpp"
 #include "config/TileConfigValue.hpp"
 #include "util/Position.hpp"
-#include <iostream>
 
 class Entity {
     protected:

@@ -9,7 +9,7 @@ Entity::~Entity() {
 }
 
 std::ostream& operator<<(std::ostream& out, Entity& entity) {
-    out << entity.display;
+    out << entity.display << Color::getColor("RESET");
     return out;
 }
 

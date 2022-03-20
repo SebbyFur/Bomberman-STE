@@ -1,9 +1,17 @@
 #ifndef _MAP_
 #define _MAP_
 
+#include "logic/Tile.hpp"
+#include "config/TilesConfig.hpp"
+#include "util/Util.hpp"
+#include "entity/EntityMap.hpp"
+#include "square/SquareMap.hpp"
 #include <string>
 #include <vector>
-#include "logic/Tile.hpp"
+#include <iostream>
+#include <stdexcept>
+#include <sstream>
+#include <fstream>
 
 class Map {
     private:

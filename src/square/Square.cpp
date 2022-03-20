@@ -9,6 +9,6 @@ Square::~Square() {
 }
 
 std::ostream& operator<<(std::ostream& out, Square& square) {
-    out << square.display;
+    out << square.display << Color::getColor("RESET");
     return out;
 }

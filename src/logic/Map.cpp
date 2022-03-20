@@ -1,11 +1,4 @@
 #include "logic/Map.hpp"
-#include "config/TilesConfig.hpp"
-#include "util/Util.hpp"
-#include "square/Air.hpp"
-#include <iostream>
-#include <stdexcept>
-#include <sstream>
-#include <fstream>
 
 Map::Map(std::string path, TilesConfig& tiles) {
     std::ifstream file(path);
@@ -18,15 +11,18 @@ Map::Map(std::string path, TilesConfig& tiles) {
     strmap = strs.str();
 
     if (!(width = is_length_equal(strmap, '\n'))) throw std::invalid_argument("Le format de la carte est invalide !");
+    rm_spaces(strmap);
+
     height = get_nb_lines(strmap, '\n') + 1;
 
     logic_size = width * height;
     logic_map = new Tile*[logic_size];
 
-    std::cout << std::to_string(width) + " " + std::to_string(height) + "\n";
-
     for (size_t x = 0; x < logic_size; x++) {
-        logic_map[x] = new Tile(new Air(tiles));
+        logic_map[x] = new Tile();
+        logic_map[x]->setSquare(make_square(strmap[x], tiles));
+        if (logic_map[x]->getSquare() == NULL) logic_map[x]->setSquare(make_square('_', tiles));
+        logic_map[x]->setEntity(make_entity(strmap[x], tiles));
     }
 }
 

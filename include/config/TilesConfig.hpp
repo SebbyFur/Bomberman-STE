@@ -15,7 +15,6 @@ class TilesConfig {
         TileConfigValue& operator[](char charKey);
         TileConfigValue& operator[](std::string strKey);
         void print_tiles();
-        void rm_spaces(std::string& str);
 };
 
 #endif

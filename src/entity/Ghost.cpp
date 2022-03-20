@@ -9,5 +9,5 @@ Ghost::~Ghost() {
 }
 
 bool Ghost::canMoveThrough() const {
-    return false;
+    return true;
 }

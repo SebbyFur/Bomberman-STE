@@ -1,5 +1,5 @@
 #include "config/TilesConfig.hpp"
-#include "util/Colors.hpp"
+#include "util/Color.hpp"
 #include "util/Util.hpp"
 #include <stdexcept>
 #include <fstream>
@@ -46,7 +46,7 @@ TilesConfig::TilesConfig(std::string fileName) {
         
         for (auto& x : tiles) {
             if (x.first == key && x.second == NULL) {
-                x.second = new TileConfigValue(ch, Colors::getColor(color));
+                x.second = new TileConfigValue(ch, Color::getColor(color).getString());
             }
         }
 
@@ -100,8 +100,4 @@ void TilesConfig::print_tiles() {
     for (auto& x : tiles) {
         std::cout << x.first << " => " << x.second->to_str2() << std::endl;
     }
-}
-
-void TilesConfig::rm_spaces(std::string& str) {
-    str.erase(std::remove_if(str.begin(), str.end(), ::isspace), str.end());
 }

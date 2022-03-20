@@ -1,8 +1,9 @@
 #ifndef _SQUARE_HPP_
 #define _SQUARE_HPP_
 
-#include "config/TileConfigValue.hpp"
 #include <iostream>
+#include "util/Color.hpp"
+#include "config/TileConfigValue.hpp"
 
 class Square {
     protected:
