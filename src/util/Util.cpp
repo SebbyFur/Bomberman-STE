@@ -18,7 +18,7 @@ int is_length_equal(std::string& str, char delim) {
         strtmp.clear(); 
     }
 
-    return size;
+    return size - 1;
 }
 
 int get_nb_lines(std::string& str, char ch) {
