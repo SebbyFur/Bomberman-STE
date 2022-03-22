@@ -1,6 +1,6 @@
 #include "entity/Player.hpp"
 
-Player::Player(TilesConfig& tiles) : Entity(tiles["PLAYER"]) {
+Player::Player(const ElementsConfig& elements) : Entity(elements["PLAYER"]) {
     //
 }
 

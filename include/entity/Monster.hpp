@@ -2,11 +2,11 @@
 #define _MONSTER_HPP_
 
 #include "Entity.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Monster : public Entity {
     public:
-        Monster(TilesConfig& tiles);
+        Monster(const ElementsConfig& elements);
         ~Monster() override;
         bool canMoveThrough() const override;
 };

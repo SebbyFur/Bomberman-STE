@@ -2,11 +2,11 @@
 #define _EXPLOSION_HPP_
 
 #include "Entity.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Explosion : public Entity {
     public:
-        Explosion(TilesConfig& tiles);
+        Explosion(const ElementsConfig& elements);
         ~Explosion() override;
         bool canMoveThrough() const override;
 };

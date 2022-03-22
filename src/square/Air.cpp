@@ -1,6 +1,6 @@
 #include "square/Air.hpp"
 
-Air::Air(TilesConfig& tiles) : Square(tiles["AIR"]) {
+Air::Air(const ElementsConfig& elements) : Square(elements["AIR"]) {
     //
 }
 

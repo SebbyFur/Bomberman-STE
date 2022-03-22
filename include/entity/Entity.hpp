@@ -2,18 +2,16 @@
 #define _ENTITY_HPP_
 
 #include <iostream>
-#include "util/Color.hpp"
-#include "config/TileConfigValue.hpp"
+#include "element/Element.hpp"
+#include "element/ElementDisplay.hpp"
 #include "util/Position.hpp"
 
-class Entity {
+class Entity : public Element {
     protected:
-        TileConfigValue& display;
         Position pos;
     public:
-        Entity(TileConfigValue& display);
+        Entity(const ElementDisplay& display);
         virtual ~Entity();
-        friend std::ostream& operator<<(std::ostream& out, Entity& entity);
         virtual bool canMoveThrough() const = 0;
         Position getPos() const;
 };

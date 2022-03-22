@@ -1,6 +1,6 @@
 #include "square/UnbreakableWall.hpp"
 
-UnbreakableWall::UnbreakableWall(TilesConfig& tiles) : Square(tiles["UNBREAKABLEWALL"]) {
+UnbreakableWall::UnbreakableWall(const ElementsConfig& elements) : Square(elements["UNBREAKABLEWALL"]) {
     //
 }
 

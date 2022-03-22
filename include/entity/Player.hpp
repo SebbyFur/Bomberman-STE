@@ -2,11 +2,11 @@
 #define _PLAYER_HPP_
 
 #include "Entity.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Player : public Entity {
     public:
-        Player(TilesConfig& tiles);
+        Player(const ElementsConfig& elements);
         ~Player() override;
         bool canMoveThrough() const override;
 };

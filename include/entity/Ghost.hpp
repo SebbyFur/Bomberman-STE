@@ -2,11 +2,11 @@
 #define _GHOST_HPP_
 
 #include "Entity.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Ghost : public Entity {
     public:
-        Ghost(TilesConfig& tiles);
+        Ghost(const ElementsConfig& elements);
         ~Ghost() override;
         bool canMoveThrough() const override;
 };

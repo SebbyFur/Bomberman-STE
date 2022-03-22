@@ -2,11 +2,11 @@
 #define _BOMB_HPP_
 
 #include "Entity.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Bomb : public Entity {
     public:
-        Bomb(TilesConfig& tiles);
+        Bomb(const ElementsConfig& elements);
         ~Bomb() override;
         bool canMoveThrough() const override;
 };

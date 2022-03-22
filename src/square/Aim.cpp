@@ -1,6 +1,6 @@
 #include "square/Aim.hpp"
 
-Aim::Aim(TilesConfig& tiles) : Square(tiles["AIM"]) {
+Aim::Aim(const ElementsConfig& elements) : Square(elements["AIM"]) {
     //
 }
 

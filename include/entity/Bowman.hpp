@@ -2,11 +2,11 @@
 #define _BOWMAN_HPP_
 
 #include "Entity.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Bowman : public Entity {
     public:
-        Bowman(TilesConfig& tiles);
+        Bowman(const ElementsConfig& elements);
         ~Bowman() override;
         bool canMoveThrough() const override;
 };

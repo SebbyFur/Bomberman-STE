@@ -4,11 +4,11 @@ Color::Color(std::string color) : color(color) {
     //
 }
 
-Color Color::getColor(const std::string color) {
-    return *(Color::colors[color]);
+const Color& Color::getColor(const std::string color) {
+    return Color::colors.at(color);
 }
 
-std::string Color::getString() {
+std::string Color::getString() const {
     return this->color;
 }
 
@@ -35,22 +35,22 @@ const Color Color::BOLDMAGENTA = Color("\033[1m\033[35m");
 const Color Color::BOLDCYAN = Color("\033[1m\033[36m");
 const Color Color::BOLDWHITE = Color("\033[1m\033[37m");
 
-std::map<const std::string, const Color*> Color::colors {
-    {"RESET", &Color::RESET},
-    {"BLACK", &Color::BLACK},
-    {"RED", &Color::RED},
-    {"GREEN", &Color::GREEN},
-    {"YELLOW", &Color::YELLOW},
-    {"BLUE", &Color::BLUE},
-    {"MAGENTA", &Color::MAGENTA},
-    {"CYAN", &Color::CYAN},
-    {"WHITE", &Color::WHITE},
-    {"BOLDBLACK", &Color::BOLDBLACK},
-    {"BOLDRED", &Color::BOLDRED},
-    {"BOLDGREEN", &Color::BOLDGREEN},
-    {"BOLDYELLOW", &Color::BOLDYELLOW},
-    {"BOLDBLUE", &Color::BOLDBLUE},
-    {"BOLDMAGENTA", &Color::BOLDMAGENTA},
-    {"BOLDCYAN", &Color::BOLDCYAN},
-    {"BOLDWHITE", &Color::BOLDWHITE}
+const std::map<const std::string, const Color> Color::colors {
+    {"RESET", Color::RESET},
+    {"BLACK", Color::BLACK},
+    {"RED", Color::RED},
+    {"GREEN", Color::GREEN},
+    {"YELLOW", Color::YELLOW},
+    {"BLUE", Color::BLUE},
+    {"MAGENTA", Color::MAGENTA},
+    {"CYAN", Color::CYAN},
+    {"WHITE", Color::WHITE},
+    {"BOLDBLACK", Color::BOLDBLACK},
+    {"BOLDRED", Color::BOLDRED},
+    {"BOLDGREEN", Color::BOLDGREEN},
+    {"BOLDYELLOW", Color::BOLDYELLOW},
+    {"BOLDBLUE", Color::BOLDBLUE},
+    {"BOLDMAGENTA", Color::BOLDMAGENTA},
+    {"BOLDCYAN", Color::BOLDCYAN},
+    {"BOLDWHITE", Color::BOLDWHITE}
 };

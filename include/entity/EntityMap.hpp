@@ -3,7 +3,7 @@
 
 #include <map>
 #include <functional>
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 #include "entity/Entity.hpp"
 #include "entity/Bomb.hpp"
 #include "entity/Bowman.hpp"
@@ -12,8 +12,8 @@
 #include "entity/Monster.hpp"
 #include "entity/Player.hpp"
 
-extern std::map<const char, std::function<Entity*(TilesConfig& tiles)>> entities;
+extern std::map<const char, std::function<Entity*(const ElementsConfig& elements)>> entities;
 
-Entity* make_entity(char ch, TilesConfig& tiles);
+Entity* make_entity(char ch, const ElementsConfig& elements);
 
 #endif

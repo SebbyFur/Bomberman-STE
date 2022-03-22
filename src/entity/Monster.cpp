@@ -1,6 +1,6 @@
 #include "entity/Monster.hpp"
 
-Monster::Monster(TilesConfig& tiles) : Entity(tiles["MONSTER"]) {
+Monster::Monster(const ElementsConfig& elements) : Entity(elements["MONSTER"]) {
     //
 }
 

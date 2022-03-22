@@ -1,6 +1,6 @@
 #include "square/Wall.hpp"
 
-Wall::Wall(TilesConfig& tiles) : Square(tiles["WALL"]) {
+Wall::Wall(const ElementsConfig& elements) : Square(elements["WALL"]) {
     //
 }
 

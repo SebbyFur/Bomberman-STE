@@ -28,10 +28,10 @@ class Color {
         static const Color BOLDCYAN;
         static const Color BOLDWHITE;
 
-        static std::map<const std::string, const Color*> colors;
+        static const std::map<const std::string, const Color> colors;
 
-        static Color getColor(std::string color);
-        std::string getString();
+        static const Color& getColor(std::string color);
+        std::string getString() const;
         friend std::ostream& operator<<(std::ostream& out, const Color& color);
 };
 

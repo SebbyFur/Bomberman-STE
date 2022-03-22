@@ -1,16 +1,16 @@
 #include "square/SquareMap.hpp"
 
-std::map<const char, std::function<Square*(TilesConfig& tiles)>> squares = {
-    {'X', [](TilesConfig& tiles) -> Square* { return new Aim(tiles); }},
-    {'_', [](TilesConfig& tiles) -> Square* { return new Air(tiles); }},
-    {'W', [](TilesConfig& tiles) -> Square* { return new Wall(tiles); }},
-    {'w', [](TilesConfig& tiles) -> Square* { return new BrokenWall(tiles); }},
-    {'I', [](TilesConfig& tiles) -> Square* { return new UnbreakableWall(tiles); }}
+std::map<const char, std::function<Square*(const ElementsConfig& elements)>> squares = {
+    {'X', [](const ElementsConfig& elements) -> Square* { return new Aim(elements); }},
+    {'_', [](const ElementsConfig& elements) -> Square* { return new Air(elements); }},
+    {'W', [](const ElementsConfig& elements) -> Square* { return new Wall(elements); }},
+    {'w', [](const ElementsConfig& elements) -> Square* { return new BrokenWall(elements); }},
+    {'I', [](const ElementsConfig& elements) -> Square* { return new UnbreakableWall(elements); }}
 };
 
-Square* make_square(char ch, TilesConfig& tiles) {
+Square* make_square(char ch, const ElementsConfig& elements) {
     try {
-        return squares[ch](tiles);
+        return squares[ch](elements);
     } catch (std::bad_function_call& e) {
         return NULL;
     }

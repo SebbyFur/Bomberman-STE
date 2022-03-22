@@ -3,7 +3,7 @@
 
 #include <map>
 #include <functional>
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 #include "square/Square.hpp"
 #include "square/Aim.hpp"
 #include "square/Air.hpp"
@@ -11,8 +11,8 @@
 #include "square/BrokenWall.hpp"
 #include "square/UnbreakableWall.hpp"
 
-extern std::map<const char, std::function<Square*(TilesConfig& tiles)>> squares;
+extern std::map<const char, std::function<Square*(const ElementsConfig& elements)>> squares;
 
-Square* make_square(char ch, TilesConfig& tiles);
+Square* make_square(char ch, const ElementsConfig& elements);
 
 #endif

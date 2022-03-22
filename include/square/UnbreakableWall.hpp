@@ -2,11 +2,11 @@
 #define _UNBREAKABLE_WALL_HPP_
 
 #include "Square.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class UnbreakableWall : public Square {
     public:
-        UnbreakableWall(TilesConfig& tiles);
+        UnbreakableWall(const ElementsConfig& elements);
         ~UnbreakableWall() override;
         bool isOpac() const override;
 };

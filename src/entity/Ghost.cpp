@@ -1,6 +1,6 @@
 #include "entity/Ghost.hpp"
 
-Ghost::Ghost(TilesConfig& tiles) : Entity(tiles["GHOST"]) {
+Ghost::Ghost(const ElementsConfig& elements) : Entity(elements["GHOST"]) {
     //
 }
 

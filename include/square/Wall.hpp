@@ -2,11 +2,11 @@
 #define _WALL_HPP_
 
 #include "Square.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Wall : public Square {
     public:
-        Wall(TilesConfig& tiles);
+        Wall(const ElementsConfig& elements);
         ~Wall() override;
         bool isOpac() const override;
 };

@@ -2,16 +2,13 @@
 #define _SQUARE_HPP_
 
 #include <iostream>
-#include "util/Color.hpp"
-#include "config/TileConfigValue.hpp"
+#include "element/Element.hpp"
+#include "element/ElementDisplay.hpp"
 
-class Square {
-    protected:
-        TileConfigValue& display;
+class Square : public Element {
     public:
-        Square(TileConfigValue& display);
+        Square(const ElementDisplay& display);
         virtual ~Square();
-        friend std::ostream& operator<<(std::ostream& out, Square& square);
         virtual bool isOpac() const = 0;
 };
 

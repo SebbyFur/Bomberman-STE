@@ -1,6 +1,6 @@
 #include "entity/Bowman.hpp"
 
-Bowman::Bowman(TilesConfig& tiles) : Entity(tiles["BOWMAN"]) {
+Bowman::Bowman(const ElementsConfig& elements) : Entity(elements["BOWMAN"]) {
     //
 }
 

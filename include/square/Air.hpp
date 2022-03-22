@@ -2,11 +2,11 @@
 #define _AIR_HPP_
 
 #include "Square.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 
 class Air : public Square {
     public:
-        Air(TilesConfig& tiles);
+        Air(const ElementsConfig& elements);
         ~Air() override;
         bool isOpac() const override;
 };

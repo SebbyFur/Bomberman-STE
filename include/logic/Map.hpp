@@ -2,7 +2,7 @@
 #define _MAP_
 
 #include "logic/Tile.hpp"
-#include "config/TilesConfig.hpp"
+#include "element/ElementsConfig.hpp"
 #include "util/Util.hpp"
 #include "entity/EntityMap.hpp"
 #include "square/SquareMap.hpp"
@@ -21,7 +21,7 @@ class Map {
         std::string strmap;
         Tile** logic_map;
     public:
-        Map(std::string path, TilesConfig& tiles);
+        Map(std::string path, const ElementsConfig& elements);
         ~Map();
         const std::string& get_str() const;
         friend std::ostream& operator<<(std::ostream& out, const Map& map);

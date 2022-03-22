@@ -1,6 +1,6 @@
 #include "square/BrokenWall.hpp"
 
-BrokenWall::BrokenWall(TilesConfig& tiles) : Square(tiles["BROKENWALL"]) {
+BrokenWall::BrokenWall(const ElementsConfig& elements) : Square(elements["BROKENWALL"]) {
     //
 }
 
