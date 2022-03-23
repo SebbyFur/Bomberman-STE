@@ -10,15 +10,17 @@ int is_length_equal(std::string& str, char delim) {
     std::istringstream streamstr(str);
 
     std::getline(streamstr, strtmp, delim);
-    size_t size = strtmp.size();
+    rm_spaces(strtmp);
+    size_t size = strtmp.length();
     strtmp.clear();
 
     while (std::getline(streamstr, strtmp, delim)) {
+        rm_spaces(strtmp);
         if (strtmp.size() != size) return 0;
-        strtmp.clear(); 
+        strtmp.clear();
     }
 
-    return size - 1;
+    return size;
 }
 
 int get_nb_lines(std::string& str, char ch) {

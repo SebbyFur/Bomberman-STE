@@ -1,5 +1,5 @@
-#ifndef _MAP_
-#define _MAP_
+#ifndef _MAP_HPP_
+#define _MAP_HPP_
 
 #include "logic/Tile.hpp"
 #include "element/ElementsConfig.hpp"

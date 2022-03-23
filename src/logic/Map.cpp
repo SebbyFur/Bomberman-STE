@@ -15,8 +15,6 @@ Map::Map(std::string path, const ElementsConfig& elements) {
     height = get_nb_lines(strmap, '\n') + 1;
     rm_spaces(strmap);
 
-    std::cout << width << std::endl;
-
     logic_size = width * height;
     logic_map = new Tile*[logic_size];
 

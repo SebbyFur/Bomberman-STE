@@ -4,6 +4,8 @@
 #include <iostream>
 #include "element/ElementDisplay.hpp"
 
+class Map;
+
 class Element {
     protected:
         const ElementDisplay& display;

@@ -1,7 +1,7 @@
 #ifndef _BOMB_HPP_
 #define _BOMB_HPP_
 
-#include "Entity.hpp"
+#include "entity/Entity.hpp"
 #include "element/ElementsConfig.hpp"
 
 class Bomb : public Entity {
