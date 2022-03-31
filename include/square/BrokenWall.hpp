@@ -6,8 +6,9 @@
 
 class BrokenWall : public Square {
     public:
-        BrokenWall(const ElementsConfig& elements);
+        BrokenWall(Tile* tile);
         ~BrokenWall() override;
+        const ElementDisplay& getDisplay() const override;
         bool isOpac() const override;
 };
 

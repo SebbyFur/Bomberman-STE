@@ -12,8 +12,8 @@
 #include "entity/Monster.hpp"
 #include "entity/Player.hpp"
 
-extern std::map<const char, std::function<Entity*(const ElementsConfig& elements)>> entities;
+extern std::map<const char, std::function<Entity*(Tile* tile)>> entities;
 
-Entity* make_entity(char ch, const ElementsConfig& elements);
+Entity* make_entity(char ch, Tile* tile);
 
 #endif

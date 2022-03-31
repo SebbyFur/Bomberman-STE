@@ -6,8 +6,9 @@
 
 class Aim : public Square {
     public:
-        Aim(const ElementsConfig& elements);
+        Aim(Tile* tile);
         ~Aim() override;
+        const ElementDisplay& getDisplay() const override;
         bool isOpac() const override;
 };
 

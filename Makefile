@@ -1,7 +1,7 @@
 NAME = bomberman
 
 CXX = g++
-CXXFLAGS = -Wall -Wextra
+CXXFLAGS = -Wall -Wextra -fsanitize=address
 IFLAG = -Iinclude
 
 SRC_DIR = src

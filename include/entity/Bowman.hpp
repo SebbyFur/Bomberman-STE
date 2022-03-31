@@ -6,8 +6,10 @@
 
 class Bowman : public Entity {
     public:
-        Bowman(const ElementsConfig& elements);
+        Bowman(Tile* tile);
         ~Bowman() override;
+        void nextTurn() override;
+        const ElementDisplay& getDisplay() const override;
         bool canMoveThrough() const override;
 };
 

@@ -1,17 +1,17 @@
 #include "entity/EntityMap.hpp"
 
-std::map<const char, std::function<Entity*(const ElementsConfig& elements)>> entities = {
-    {'P', [](const ElementsConfig& elements) -> Entity* { return new Player(elements); }},
-    {'O', [](const ElementsConfig& elements) -> Entity* { return new Bomb(elements); }},
-    {'@', [](const ElementsConfig& elements) -> Entity* { return new Explosion(elements); }},
-    {'M', [](const ElementsConfig& elements) -> Entity* { return new Monster(elements); }},
-    {'G', [](const ElementsConfig& elements) -> Entity* { return new Ghost(elements); }},
-    {'B', [](const ElementsConfig& elements) -> Entity* { return new Bowman(elements); }}
+std::map<const char, std::function<Entity*(Tile* tile)>> entities = {
+    {'P', [](Tile* tile) -> Entity* { return new Player(tile); }},
+    {'O', [](Tile* tile) -> Entity* { return new Bomb(tile); }},
+    {'@', [](Tile* tile) -> Entity* { return new Explosion(tile); }},
+    {'M', [](Tile* tile) -> Entity* { return new Monster(tile); }},
+    {'G', [](Tile* tile) -> Entity* { return new Ghost(tile); }},
+    {'B', [](Tile* tile) -> Entity* { return new Bowman(tile); }}
 };
 
-Entity* make_entity(char ch, const ElementsConfig& elements) {
+Entity* make_entity(char ch, Tile* tile) {
     try {
-        return entities[ch](elements);
+        return entities[ch](tile);
     } catch (std::bad_function_call& e) {
         return NULL;
     }

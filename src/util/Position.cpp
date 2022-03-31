@@ -13,7 +13,20 @@ int Position::getY() const {
     return this->y;
 }
 
+Position Position::operator+(const Direction& dir) {
+    return Position(x + dir.getX(), y + dir.getY());
+}
+
+void Position::operator+=(const Direction& dir) {
+    x += dir.getX();
+    y += dir.getY();
+}
+
+std::string Position::to_str() const {
+    return "x: " + std::to_string(x) + " y: " + std::to_string(y);
+}
+
 std::ostream& operator<<(std::ostream& out, const Position& pos) {
-    out << "x: " + std::to_string(pos.x) + " y: " + std::to_string(pos.y);
+    out << pos.to_str();
     return out;
 }

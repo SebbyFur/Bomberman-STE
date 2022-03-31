@@ -6,8 +6,11 @@
 
 class Bomb : public Entity {
     public:
-        Bomb(const ElementsConfig& elements);
+        Bomb(Tile* tile);
         ~Bomb() override;
+        void explode();
+        void nextTurn() override;
+        const ElementDisplay& getDisplay() const override;
         bool canMoveThrough() const override;
 };
 

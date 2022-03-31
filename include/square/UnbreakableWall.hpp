@@ -6,8 +6,9 @@
 
 class UnbreakableWall : public Square {
     public:
-        UnbreakableWall(const ElementsConfig& elements);
+        UnbreakableWall(Tile* tile);
         ~UnbreakableWall() override;
+        const ElementDisplay& getDisplay() const override;
         bool isOpac() const override;
 };
 

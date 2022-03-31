@@ -1,2 +1,2 @@
 # Bomberman-CPP
-A small Bomberman game written in C++
+A small Bomberman System written in C++

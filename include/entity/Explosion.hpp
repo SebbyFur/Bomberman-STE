@@ -6,8 +6,10 @@
 
 class Explosion : public Entity {
     public:
-        Explosion(const ElementsConfig& elements);
+        Explosion(Tile* tile);
         ~Explosion() override;
+        const ElementDisplay& getDisplay() const override;
+        void nextTurn() override;
         bool canMoveThrough() const override;
 };
 

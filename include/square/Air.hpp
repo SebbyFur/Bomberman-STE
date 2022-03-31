@@ -6,8 +6,9 @@
 
 class Air : public Square {
     public:
-        Air(const ElementsConfig& elements);
+        Air(Tile* tile);
         ~Air() override;
+        const ElementDisplay& getDisplay() const override;
         bool isOpac() const override;
 };
 

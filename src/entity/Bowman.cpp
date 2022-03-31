@@ -1,11 +1,21 @@
 #include "entity/Bowman.hpp"
+#include "logic/Map.hpp"
+#include "logic/Tile.hpp"
 
-Bowman::Bowman(const ElementsConfig& elements) : Entity(elements["BOWMAN"]) {
+Bowman::Bowman(Tile* tile) : Entity(tile) {
     //
 }
 
 Bowman::~Bowman() {
     //
+}
+
+void Bowman::nextTurn() {
+    //
+}
+
+const ElementDisplay& Bowman::getDisplay() const {
+    return this->tile->getMap()->getConfig()["BOWMAN"];
 }
 
 bool Bowman::canMoveThrough() const {

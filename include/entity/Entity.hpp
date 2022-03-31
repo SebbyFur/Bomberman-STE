@@ -4,16 +4,15 @@
 #include <iostream>
 #include "element/Element.hpp"
 #include "element/ElementDisplay.hpp"
-#include "util/Position.hpp"
+#include "util/Direction.hpp"
 
 class Entity : public Element {
-    protected:
-        Position pos;
     public:
-        Entity(const ElementDisplay& display);
+        Entity(Tile* tile);
         virtual ~Entity();
+        int move(const Direction dir);
         virtual bool canMoveThrough() const = 0;
-        Position getPos() const;
+        virtual void nextTurn() = 0;
 };
 
 #endif

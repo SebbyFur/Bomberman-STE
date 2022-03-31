@@ -3,15 +3,20 @@
 
 #include <iostream>
 #include "element/ElementDisplay.hpp"
+#include "util/Position.hpp"
 
-class Map;
+class Tile;
 
 class Element {
     protected:
-        const ElementDisplay& display;
+        Tile* tile;
     public:
-        Element(const ElementDisplay& display);
+        Element(Tile* tile);
         virtual ~Element();
+        Tile* getTile();
+        void setTile(Tile* tile);
+        Position getPos() const;
+        virtual const ElementDisplay& getDisplay() const = 0;
         friend std::ostream& operator<<(std::ostream& out, const Element& element);
 };
 

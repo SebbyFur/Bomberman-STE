@@ -1,11 +1,17 @@
 #include "square/Aim.hpp"
+#include "logic/Map.hpp"
+#include "logic/Tile.hpp"
 
-Aim::Aim(const ElementsConfig& elements) : Square(elements["AIM"]) {
+Aim::Aim(Tile* tile) : Square(tile) {
     //
 }
 
 Aim::~Aim() {
     //
+}
+
+const ElementDisplay& Aim::getDisplay() const {
+    return this->tile->getMap()->getConfig()["AIM"];
 }
 
 bool Aim::isOpac() const {

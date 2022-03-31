@@ -6,8 +6,10 @@
 
 class Player : public Entity {
     public:
-        Player(const ElementsConfig& elements);
+        Player(Tile* tile);
         ~Player() override;
+        const ElementDisplay& getDisplay() const override;
+        void nextTurn() override;
         bool canMoveThrough() const override;
 };
 

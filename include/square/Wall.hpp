@@ -6,8 +6,9 @@
 
 class Wall : public Square {
     public:
-        Wall(const ElementsConfig& elements);
+        Wall(Tile* tile);
         ~Wall() override;
+        const ElementDisplay& getDisplay() const override;
         bool isOpac() const override;
 };
 

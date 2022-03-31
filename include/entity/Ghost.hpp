@@ -6,9 +6,11 @@
 
 class Ghost : public Entity {
     public:
-        Ghost(const ElementsConfig& elements);
+        Ghost(Tile* tile);
         ~Ghost() override;
+        void nextTurn() override;
         bool canMoveThrough() const override;
+        const ElementDisplay& getDisplay() const override;
 };
 
 #endif

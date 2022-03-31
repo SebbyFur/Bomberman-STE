@@ -11,8 +11,8 @@
 #include "square/BrokenWall.hpp"
 #include "square/UnbreakableWall.hpp"
 
-extern std::map<const char, std::function<Square*(const ElementsConfig& elements)>> squares;
+extern std::map<const char, std::function<Square*(Tile* tile)>> squares;
 
-Square* make_square(char ch, const ElementsConfig& elements);
+Square* make_square(char ch, Tile* tile);
 
 #endif

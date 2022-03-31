@@ -6,8 +6,10 @@
 
 class Monster : public Entity {
     public:
-        Monster(const ElementsConfig& elements);
+        Monster(Tile* tile);
         ~Monster() override;
+        const ElementDisplay& getDisplay() const override;
+        void nextTurn() override;
         bool canMoveThrough() const override;
 };
 

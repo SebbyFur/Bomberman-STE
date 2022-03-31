@@ -1,16 +1,17 @@
 #include "square/SquareMap.hpp"
+#include "logic/Tile.hpp"
 
-std::map<const char, std::function<Square*(const ElementsConfig& elements)>> squares = {
-    {'X', [](const ElementsConfig& elements) -> Square* { return new Aim(elements); }},
-    {'_', [](const ElementsConfig& elements) -> Square* { return new Air(elements); }},
-    {'W', [](const ElementsConfig& elements) -> Square* { return new Wall(elements); }},
-    {'w', [](const ElementsConfig& elements) -> Square* { return new BrokenWall(elements); }},
-    {'I', [](const ElementsConfig& elements) -> Square* { return new UnbreakableWall(elements); }}
+std::map<const char, std::function<Square*(Tile* tile)>> squares = {
+    {'X', [](Tile* tile) -> Square* { return new Aim(tile); }},
+    {'_', [](Tile* tile) -> Square* { return new Air(tile); }},
+    {'W', [](Tile* tile) -> Square* { return new Wall(tile); }},
+    {'w', [](Tile* tile) -> Square* { return new BrokenWall(tile); }},
+    {'I', [](Tile* tile) -> Square* { return new UnbreakableWall(tile); }}
 };
 
-Square* make_square(char ch, const ElementsConfig& elements) {
+Square* make_square(char ch, Tile* tile) {
     try {
-        return squares[ch](elements);
+        return squares[ch](tile);
     } catch (std::bad_function_call& e) {
         return NULL;
     }

@@ -4,23 +4,28 @@
 #include "entity/Explosion.hpp"
 #include "entity/Entity.hpp"
 #include "square/Square.hpp"
+#include "util/Position.hpp"
+
+class Map;
 
 class Tile {
     private:
+        Map* map;
         Explosion* explosion;
         Entity* entity;
         Square* square;
+        const Position pos;
     public:
-        Tile(Square* square);
-        Tile();
+        Tile(Square* square, Entity* entity, Map* map, const Position pos);
+        Tile(Map* map, const Position pos);
         ~Tile();
-        int canPassThrough() const;
-        Explosion* getExplosion() const;
+        Position getPos() const;
+        Map* getMap() const;
         Entity* getEntity() const;
         Square* getSquare() const;
-        void setExplosion(Explosion* explosion);
         void setEntity(Entity* entity);
         void setSquare(Square* square);
+        void makeItExplode();
         friend std::ostream& operator<<(std::ostream& out, const Tile& tile);
 };
 

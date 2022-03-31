@@ -1,10 +1,10 @@
 #include "logic/Tile.hpp"
 
-Tile::Tile(Square* square) : explosion(NULL), entity(NULL), square(square) {
+Tile::Tile(Square* square, Entity* entity, Map* map, const Position pos) : map(map), explosion(NULL), entity(entity), square(square), pos(pos) {
     //
 }
 
-Tile::Tile() : explosion(NULL), entity(NULL), square(NULL) {
+Tile::Tile(Map* map, const Position pos) : map(map), explosion(NULL), entity(NULL), square(NULL), pos(pos) {
     //
 }
 
@@ -14,12 +14,12 @@ Tile::~Tile() {
     if (square != NULL) delete square;
 }
 
-int Tile::canPassThrough() const {
-    return (square->isOpac() || entity->canMoveThrough());
+Position Tile::getPos() const {
+    return this->pos;
 }
 
-Explosion* Tile::getExplosion() const {
-    return explosion;    
+Map* Tile::getMap() const {
+    return this->map;
 }
 
 Entity* Tile::getEntity() const {
@@ -30,16 +30,16 @@ Square* Tile::getSquare() const {
     return square;
 }
 
-void Tile::setExplosion(Explosion* explosion) {
-    this->explosion = explosion;
-}
-
 void Tile::setEntity(Entity* entity) {
     this->entity = entity;
 }
 
 void Tile::setSquare(Square* square) {
     this->square = square;
+}
+
+void Tile::makeItExplode() {
+    this->explosion = new Explosion(this);
 }
 
 std::ostream& operator<<(std::ostream& out, const Tile& tile) {

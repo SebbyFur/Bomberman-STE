@@ -7,7 +7,7 @@
 
 class Square : public Element {
     public:
-        Square(const ElementDisplay& display);
+        Square(Tile* tile);
         virtual ~Square();
         virtual bool isOpac() const = 0;
 };
