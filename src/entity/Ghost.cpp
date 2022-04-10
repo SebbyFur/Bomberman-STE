@@ -1,16 +1,15 @@
 #include "entity/Ghost.hpp"
+#include "element/ElementDisplay.hpp"
 #include "logic/Map.hpp"
 #include "logic/Tile.hpp"
+#include "util/Direction.hpp"
+#include "util/Random.hpp"
 
-Ghost::Ghost(Tile* tile) : Entity(tile) {
-    //
+Ghost::Ghost(Tile* tile) : Enemy(tile, 10, 3, 1) {
+    move_through = true;
 }
 
 Ghost::~Ghost() {
-    //
-}
-
-void Ghost::nextTurn() {
     //
 }
 
@@ -19,5 +18,5 @@ const ElementDisplay& Ghost::getDisplay() const {
 }
 
 bool Ghost::canMoveThrough() const {
-    return true;
+    return move_through;
 }

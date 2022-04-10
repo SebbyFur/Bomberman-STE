@@ -1,16 +1,13 @@
 #include "entity/Monster.hpp"
+#include "element/ElementDisplay.hpp"
 #include "logic/Map.hpp"
 #include "logic/Tile.hpp"
 
-Monster::Monster(Tile* tile) : Entity(tile) {
+Monster::Monster(Tile* tile) : Enemy(tile, 10, 5, 1) {
     //
 }
 
 Monster::~Monster() {
-    //
-}
-
-void Monster::nextTurn() {
     //
 }
 
@@ -19,5 +16,5 @@ const ElementDisplay& Monster::getDisplay() const {
 }
 
 bool Monster::canMoveThrough() const {
-    return false;
+    return move_through;
 }

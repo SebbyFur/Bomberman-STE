@@ -14,6 +14,14 @@ const ElementDisplay& Aim::getDisplay() const {
     return this->tile->getMap()->getConfig()["AIM"];
 }
 
+bool Aim::isDestroyable() const {
+    return false;
+}
+
+void Aim::destroy() {
+    //
+}
+
 bool Aim::isOpac() const {
     return false;
 }

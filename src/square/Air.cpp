@@ -14,6 +14,14 @@ const ElementDisplay& Air::getDisplay() const {
     return this->tile->getMap()->getConfig()["AIR"];
 }
 
+bool Air::isDestroyable() const {
+    return false;
+}
+
+void Air::destroy() {
+    //
+}
+
 bool Air::isOpac() const {
     return false;
 }

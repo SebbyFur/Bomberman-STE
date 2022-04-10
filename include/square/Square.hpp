@@ -9,6 +9,8 @@ class Square : public Element {
     public:
         Square(Tile* tile);
         virtual ~Square();
+        virtual bool isDestroyable() const = 0;
+        virtual void destroy() = 0;
         virtual bool isOpac() const = 0;
 };
 

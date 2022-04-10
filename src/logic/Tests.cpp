@@ -1,10 +1,8 @@
 #include "logic/System.hpp"
-#include <string>
-#include <iostream>
 
 int main() {
-    System system("map.txt", "config.txt");
-    system.startSystem();
+    System sys;
+    sys.menu();
 
     return 0;
 }

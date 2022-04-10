@@ -1,16 +1,16 @@
 #ifndef _PLAYER_HPP_
 #define _PLAYER_HPP_
 
-#include "Entity.hpp"
-#include "element/ElementsConfig.hpp"
+#include "entity/Bomber.hpp"
 
-class Player : public Entity {
+class Player : public Bomber {
     public:
         Player(Tile* tile);
         ~Player() override;
-        const ElementDisplay& getDisplay() const override;
-        void nextTurn() override;
+        bool nextTurn() override;
+        void placeBomb();
         bool canMoveThrough() const override;
+        const ElementDisplay& getDisplay() const override;
 };
 
 #endif

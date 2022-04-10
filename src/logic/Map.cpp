@@ -1,9 +1,11 @@
 #include "logic/Map.hpp"
 #include "entity/EntityMap.hpp"
 #include "square/SquareMap.hpp"
+#include "item/ItemMap.hpp"
+#include "belonging/BelongingMap.hpp"
 #include "util/Util.hpp"
 
-Map::Map(std::string path, const ElementsConfig& display) : display(display) {
+Map::Map(std::string path, const ElementsConfig& display) : display(display), aim_spawned(false), players_lost(0) {
     std::ifstream file(path);
     std::string buffer;
 
@@ -25,10 +27,21 @@ Map::Map(std::string path, const ElementsConfig& display) : display(display) {
         logic_map[x] = new Tile(this, Position(x / width, x % width));
         Entity* entity = make_entity(strmap[x], logic_map[x]);
         Square* square = make_square(strmap[x], logic_map[x]);
+        Item* item = make_item(strmap[x], logic_map[x]);
         if (square == NULL) square = make_square('_', logic_map[x]);
 
         logic_map[x]->setEntity(entity);
         logic_map[x]->setSquare(square);
+        logic_map[x]->setItem(item);
+
+        if (entity != NULL) {
+            if (typeid(*entity) == typeid(Player)) {
+                players.push_back(dynamic_cast<Player*>(entity));
+                players_lost++;
+            } else {
+                mobs.push_back(entity);
+            }
+        }
     }
 }
 
@@ -55,8 +68,64 @@ Tile* Map::getTileAtPos(const Position pos) const {
     return this->logic_map[pos.getX() * width + pos.getY()];
 }
 
+std::vector<Player*> Map::getPlayers() const {
+    return players;
+}
+
 const ElementsConfig& Map::getConfig() const {
     return display;
+}
+
+int Map::getMobsLeft() const {
+    return mobs.size();
+}
+
+void Map::minusPlayersLost() {
+    players_lost--;
+}
+
+int Map::tick() {
+    if (players.size() == 0) return players_lost;
+    for (auto it = players.begin(); it != players.end(); it++) {
+        int turns = (*it)->getSpeed();
+        int del;
+
+        while (turns-- && !(del = (*it)->nextTurn())) {
+            std::cout << *this << std::endl;
+            std::cout << *(*it) << std::endl;
+        }
+
+        if (del) {
+            std::cout << *this << std::endl;
+            std::cout << *(*it) << std::endl;
+            if ((*it)->getHealth() > 0) {
+                std::cout << Color::GREEN << "T'es pas mort" << Color::RESET << std::endl;
+            } else {
+                std::cout << Color::BOLDRED << "T'es mort" << Color::RESET << std::endl;
+            }
+            delete *it;
+            players.erase(it);
+            it--;
+        }
+    }
+
+    for (auto it = mobs.begin(); it != mobs.end(); it++) {
+        if ((*it)->nextTurn()) {
+            delete *it;
+            mobs.erase(it);
+            it--;
+        }
+    }
+
+    return -1;
+}
+
+int Map::hasAimSpawned() const {
+    return aim_spawned;
+}
+
+void Map::setAimSpawned(int aim_spawned) {
+    this->aim_spawned = aim_spawned;
 }
 
 std::ostream& operator<<(std::ostream& out, const Map& map) {

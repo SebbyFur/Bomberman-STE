@@ -9,6 +9,8 @@ class BrokenWall : public Square {
         BrokenWall(Tile* tile);
         ~BrokenWall() override;
         const ElementDisplay& getDisplay() const override;
+        bool isDestroyable() const override;
+        void destroy() override;
         bool isOpac() const override;
 };
 

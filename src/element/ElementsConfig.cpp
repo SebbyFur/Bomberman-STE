@@ -13,6 +13,8 @@ const std::map<const char, const std::string> ElementsConfig::map_charstr = {
     {'L', "MORELIFE"},
     {'U', "POWERUP"},
     {'E', "MOREBOMB"},
+    {'Y', "CONTROLBOMBS"},
+    {'#', "MOVETHROUGH"},
     {'S', "SPEEDUP"},
     {'R', "SCALEUP"},
     {'X', "AIM"},

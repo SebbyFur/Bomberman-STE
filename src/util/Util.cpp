@@ -1,5 +1,13 @@
 #include "util/Util.hpp"
 #include <iostream>
+#include <chrono>
+#include <thread>
+
+#ifdef _WIN32
+#define CLEAR "cls"
+#else
+#define CLEAR "clear"
+#endif
 
 void rm_spaces(std::string& str) {
     str.erase(std::remove_if(str.begin(), str.end(), ::isspace), str.end());
@@ -28,4 +36,12 @@ int get_nb_lines(std::string& str, char ch) {
     if (*(str.end() - 1) == '\n') return count - 1;
 
     return count;
+}
+
+void sleep_for(int ms) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+}
+
+void clear() {
+    std::system(CLEAR);
 }

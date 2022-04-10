@@ -1,18 +1,16 @@
 #ifndef _SYSTEM_HPP_
 #define _SYSTEM_HPP_
 
-#include "logic/Map.hpp"
-#include "element/ElementsConfig.hpp"
-#include <string>
-#include <memory>
+#include "logic/Game.hpp"
 
 class System {
     private:
-        std::unique_ptr<Map> map;
-        std::unique_ptr<ElementsConfig> display_config;
+        Game game;
     public:
-        System(std::string map_path, std::string config_path);
-        void startSystem();
+        System();
+        void start();
+        void menu();
+        int setGame();
 };
 
 #endif

@@ -1,15 +1,13 @@
 #ifndef _MONSTER_HPP_
 #define _MONSTER_HPP_
 
-#include "Entity.hpp"
-#include "element/ElementsConfig.hpp"
+#include "entity/Enemy.hpp"
 
-class Monster : public Entity {
+class Monster : public Enemy {
     public:
         Monster(Tile* tile);
         ~Monster() override;
         const ElementDisplay& getDisplay() const override;
-        void nextTurn() override;
         bool canMoveThrough() const override;
 };
 

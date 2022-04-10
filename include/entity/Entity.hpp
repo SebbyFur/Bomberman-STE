@@ -3,16 +3,16 @@
 
 #include <iostream>
 #include "element/Element.hpp"
-#include "element/ElementDisplay.hpp"
 #include "util/Direction.hpp"
+#include <vector>
+
+class Belonging;
 
 class Entity : public Element {
     public:
         Entity(Tile* tile);
         virtual ~Entity();
-        int move(const Direction dir);
-        virtual bool canMoveThrough() const = 0;
-        virtual void nextTurn() = 0;
+        virtual bool nextTurn() = 0;
 };
 
 #endif

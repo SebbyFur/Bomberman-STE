@@ -14,6 +14,14 @@ const ElementDisplay& UnbreakableWall::getDisplay() const {
     return this->tile->getMap()->getConfig()["UNBREAKABLEWALL"];
 }
 
+bool UnbreakableWall::isDestroyable() const {
+    return false;
+}
+
+void UnbreakableWall::destroy() {
+    //
+}
+
 bool UnbreakableWall::isOpac() const {
     return true;
 }

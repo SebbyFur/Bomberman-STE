@@ -11,8 +11,8 @@ std::map<const char, std::function<Square*(Tile* tile)>> squares = {
 
 Square* make_square(char ch, Tile* tile) {
     try {
-        return squares[ch](tile);
-    } catch (std::bad_function_call& e) {
+        return squares.at(ch)(tile);
+    } catch (std::out_of_range& e) {
         return NULL;
     }
 }

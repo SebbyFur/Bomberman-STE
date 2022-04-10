@@ -1,14 +1,12 @@
 #ifndef _GHOST_HPP_
 #define _GHOST_HPP_
 
-#include "Entity.hpp"
-#include "element/ElementsConfig.hpp"
+#include "entity/Enemy.hpp"
 
-class Ghost : public Entity {
+class Ghost : public Enemy {
     public:
         Ghost(Tile* tile);
         ~Ghost() override;
-        void nextTurn() override;
         bool canMoveThrough() const override;
         const ElementDisplay& getDisplay() const override;
 };
