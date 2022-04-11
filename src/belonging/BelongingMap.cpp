@@ -9,6 +9,6 @@ Belonging* make_belonging(char ch, Tile* tile, Entity* owner) {
     try {
         return belongings[ch](tile, owner);
     } catch (std::bad_function_call& e) {
-        return NULL;
+        return nullptr;
     }
 }

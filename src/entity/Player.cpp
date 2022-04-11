@@ -15,7 +15,7 @@ Player::~Player() {
 }
 
 void Player::placeBomb() {
-    if (tile != NULL && tile->getBomb() == NULL && !tile->getSquare()->isOpac()) {
+    if (tile != nullptr && tile->getBomb() == nullptr && !tile->getSquare()->isOpac()) {
         Bomb* bomb = new Bomb(tile, this);
         tile->setBomb(bomb);
         belongings.push_back(bomb);
@@ -45,16 +45,16 @@ bool Player::nextTurn() {
     this->move(dir);
 
     Item* item = tile->getItem();
-    if (item != NULL) {
+    if (item != nullptr) {
         *this += *item;
-        tile->setItem(NULL);
+        tile->setItem(nullptr);
         delete item;
     }
 
     for (auto it = belongings.begin(); it != belongings.end(); it++) {
         Bomb* bomb = dynamic_cast<Bomb*>(*it);
         if (control_bombs) {
-            if (bomb->getCountDown() != 0) bomb->setCountDown(1);
+            if (this->control_bombs && bomb->getCountDown() != 0) bomb->setCountDown(1);
         } else if (this->control_bombs && bomb->getCountDown() != 0) {
             bomb->setCountDown(3);
         }

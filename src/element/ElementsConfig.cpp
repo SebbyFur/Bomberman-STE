@@ -23,12 +23,17 @@ const std::map<const char, const std::string> ElementsConfig::map_charstr = {
 
 ElementsConfig::ElementsConfig(std::string file_name) {
     for (auto& x : ElementsConfig::map_charstr) {
-        tiles_display.insert(std::pair<const std::string, ElementDisplay*>(x.second, NULL));
+        tiles_display.insert(std::pair<const std::string, ElementDisplay*>(x.second, nullptr));
     }
 
     std::fstream file(file_name);
-    if (!file)
-        throw std::invalid_argument("Ouverture du fichier impossible ou fichier inexistant");
+    if (!file) {
+        file.open(file_name, std::fstream::app);
+        file.close();
+        file.open(file_name);
+        if (!file) throw std::invalid_argument("Ouverture du fichier impossible ou fichier inexistant");
+    }
+
 
     std::string line;
     int line_count = 1;
@@ -46,7 +51,7 @@ ElementsConfig::ElementsConfig(std::string file_name) {
         std::string color = line.substr(i + 2, line.size());
 
         auto x = tiles_display.find(key);
-        if (x != tiles_display.end() && x->first == key && x->second == NULL) {
+        if (x != tiles_display.end() && x->first == key && x->second == nullptr) {
             x->second = new ElementDisplay(ch, Color::getColor(color));
         }
 
@@ -65,7 +70,7 @@ ElementsConfig::ElementsConfig(std::string file_name) {
     file.clear();
 
     for (auto& x : tiles_display) {
-        if (x.second == NULL) {
+        if (x.second == nullptr) {
             const char ch = std::find_if(ElementsConfig::map_charstr.begin(), ElementsConfig::map_charstr.end(),
             [&x](auto y) {
                 return y.second == x.first;
@@ -79,7 +84,7 @@ ElementsConfig::ElementsConfig(std::string file_name) {
 
 ElementsConfig::~ElementsConfig() {
     for (auto& x : tiles_display) {
-        if (x.second != NULL) delete x.second;
+        if (x.second != nullptr) delete x.second;
     }
 }
 

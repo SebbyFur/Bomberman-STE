@@ -39,7 +39,7 @@ bool Enemy::nextTurn() {
         }
 
         const Direction& mv = Direction::getDirection(getPos(), follow->getPos());
-        if (Random::randRange(0, 10) > 5) move(mv);
+        if (Random::randRange(0, 1) == 1) move(mv);
     }
 
     return false;

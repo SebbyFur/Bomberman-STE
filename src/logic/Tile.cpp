@@ -1,19 +1,19 @@
 #include "logic/Tile.hpp"
 
-Tile::Tile(Square* square, Entity* entity, Map* map, const Position pos) : map(map), explosion(NULL), bomb(NULL), entity(entity), square(square), item(NULL), pos(pos) {
+Tile::Tile(Square* square, Entity* entity, Map* map, const Position pos) : map(map), explosion(nullptr), bomb(nullptr), entity(entity), square(square), item(nullptr), pos(pos) {
     //
 }
 
-Tile::Tile(Map* map, const Position pos) : map(map), explosion(NULL), bomb(NULL), entity(NULL), square(NULL), item(NULL), pos(pos) {
+Tile::Tile(Map* map, const Position pos) : map(map), explosion(nullptr), bomb(nullptr), entity(nullptr), square(nullptr), item(nullptr), pos(pos) {
     //
 }
 
 Tile::~Tile() {
-    if (entity != NULL) delete entity;
-    if (explosion != NULL) delete explosion;
-    if (bomb != NULL) delete bomb;
-    if (square != NULL) delete square;
-    if (item != NULL) delete item;
+    if (entity != nullptr) delete entity;
+    if (explosion != nullptr) delete explosion;
+    if (bomb != nullptr) delete bomb;
+    if (square != nullptr) delete square;
+    if (item != nullptr) delete item;
 }
 
 Position Tile::getPos() const {
@@ -65,15 +65,15 @@ void Tile::setBomb(Bomb* bomb) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Tile& tile) {
-    if (tile.explosion != NULL) {
+    if (tile.explosion != nullptr) {
         out << *(tile.explosion);
-    } else if (tile.entity != NULL) {
+    } else if (tile.entity != nullptr) {
         out << *(tile.entity);
-    } else if (tile.bomb != NULL) {
+    } else if (tile.bomb != nullptr) {
         out << *(tile.bomb);
-    } else if (tile.item != NULL) {
+    } else if (tile.item != nullptr) {
         out << *(tile.item);
-    } else if (tile.square != NULL) {
+    } else if (tile.square != nullptr) {
         out << *(tile.square);
     }
 

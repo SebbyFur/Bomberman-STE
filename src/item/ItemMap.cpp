@@ -24,7 +24,7 @@ Item* make_item(char ch, Tile* tile) {
     try {
         return items.at(ch)(tile);
     } catch (std::out_of_range& e) {
-        return NULL;
+        return nullptr;
     }
 }
 

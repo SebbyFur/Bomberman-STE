@@ -11,6 +11,13 @@
 #include "square/BrokenWall.hpp"
 #include "square/UnbreakableWall.hpp"
 
+/**
+* @file SquareMap.hpp
+* @brief Fichier de Map Square
+*
+* Ce fichier est purement fonctionnel. Il renvoie le Square correspondant au caractère passé en paramètre
+*/
+
 extern std::map<const char, std::function<Square*(Tile* tile)>> squares;
 
 Square* make_square(char ch, Tile* tile);

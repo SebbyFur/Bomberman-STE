@@ -4,6 +4,19 @@
 #include <string>
 #include <map>
 
+/**
+* @file Color.hpp
+* @brief Fichier de classe Color
+*
+* Fichier de classe Color
+*/
+
+/**
+* @class Color
+* @brief Classe Color
+*
+* Cette classe répertorie toutes les couleurs existantes.
+*/
 class Color {
     private:
         Color();
@@ -30,8 +43,29 @@ class Color {
 
         static const std::map<const std::string, const Color> colors;
 
+        /**
+        * @brief Méthode statique pour obtenir les couleurs depuis un std::string
+        * @return un Color&
+        *
+        * Renvoie un Color& en fonction du std::string passé en paramètre
+        */
         static const Color& getColor(std::string color);
+
+        /**
+        * @brief Méthode pour obtenir un std::string depuis une couleur
+        * @return un std::string
+        *
+        * Renvoie un std::string en fonction de l'objet Color
+        */
         std::string getString() const;
+
+        /**
+        * @brief Surcharge de l'opérateur de flux sortant
+        * @return un std::ostream&
+        * @param out le flux
+        * @param color la Color à afficher
+        * Renvoie un std::ostream&
+        */
         friend std::ostream& operator<<(std::ostream& out, const Color& color);
 };
 

@@ -32,10 +32,10 @@ void Bomb::explode() {
         tile->setBomb(nullptr);
         Position pos = getPos() + x;
         Tile* next_tile = map->getTileAtPos(pos);
-        if (next_tile == NULL) break;
+        if (next_tile == nullptr) break;
         Square* square = next_tile->getSquare();
 
-        while (!square->isOpac() && next_tile->getBomb() == NULL && cd--) {
+        while (!square->isOpac() && next_tile->getBomb() == nullptr && cd--) {
             Explosion* temp = next_tile->getExplosion();
             if (temp != nullptr) {
                 Bomb* owner = dynamic_cast<Bomb*>(temp->getOwner());

@@ -13,6 +13,6 @@ Square* make_square(char ch, Tile* tile) {
     try {
         return squares.at(ch)(tile);
     } catch (std::out_of_range& e) {
-        return NULL;
+        return nullptr;
     }
 }

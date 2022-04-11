@@ -6,7 +6,7 @@ Mob::Mob(Tile* tile) : Entity(tile), health(50), power(5), speed(1), move_throug
     //
 }
 
-Mob::Mob(Tile* tile, int health, int power, int speed) : Entity(tile), health(health), power(power), speed(speed) {
+Mob::Mob(Tile* tile, int health, int power, int speed) : Entity(tile), health(health), power(power), speed(speed), move_through(false) {
     //
 }
 
@@ -56,18 +56,16 @@ void Mob::setMoveThrough(bool move_through) {
     this->move_through = move_through;
 }
 
-int Mob::move(const Direction dir) {
+void Mob::move(const Direction dir) {
     Map* map = tile->getMap();
     Position next_pos = this->getPos() + dir;
 
     Tile* next_tile = map->getTileAtPos(next_pos);
-    if (next_tile != NULL && next_tile->getEntity() == NULL && (!next_tile->getSquare()->isOpac() || canMoveThrough())) {
-        map->getTileAtPos(getPos())->setEntity(NULL);
+    if (next_tile != nullptr && next_tile->getEntity() == nullptr && (!next_tile->getSquare()->isOpac() || canMoveThrough())) {
+        map->getTileAtPos(getPos())->setEntity(nullptr);
         this->tile = next_tile;
         next_tile->setEntity(this);
     }
-
-    return 1;
 }
 
 void Mob::getAttacked(const Mob& mob) {

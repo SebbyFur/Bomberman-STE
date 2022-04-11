@@ -11,6 +11,6 @@ Entity* make_entity(char ch, Tile* tile) {
     try {
         return entities.at(ch)(tile);
     } catch (std::out_of_range& e) {
-        return NULL;
+        return nullptr;
     }
 }

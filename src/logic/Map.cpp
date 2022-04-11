@@ -28,13 +28,13 @@ Map::Map(std::string path, const ElementsConfig& display) : display(display), ai
         Entity* entity = make_entity(strmap[x], logic_map[x]);
         Square* square = make_square(strmap[x], logic_map[x]);
         Item* item = make_item(strmap[x], logic_map[x]);
-        if (square == NULL) square = make_square('_', logic_map[x]);
+        if (square == nullptr) square = make_square('_', logic_map[x]);
 
         logic_map[x]->setEntity(entity);
         logic_map[x]->setSquare(square);
         logic_map[x]->setItem(item);
 
-        if (entity != NULL) {
+        if (entity != nullptr) {
             if (typeid(*entity) == typeid(Player)) {
                 players.push_back(dynamic_cast<Player*>(entity));
                 players_lost++;
@@ -47,10 +47,10 @@ Map::Map(std::string path, const ElementsConfig& display) : display(display), ai
 
 Map::~Map() {
     for (int x = 0; x < logic_size; x++) {
-        if (logic_map[x] != NULL) delete logic_map[x];
+        if (logic_map[x] != nullptr) delete logic_map[x];
     }
 
-    if (logic_map != NULL) delete[] logic_map;
+    if (logic_map != nullptr) delete[] logic_map;
 }
 
 const std::string& Map::get_str() const {
@@ -63,7 +63,7 @@ Tile* Map::getTileAtPos(int x, int y) const {
 
 Tile* Map::getTileAtPos(const Position pos) const {
     if (pos.getX() >= height || pos.getY() >= width || pos.getX() < 0 || pos.getY() < 0) {
-        return NULL;
+        return nullptr;
     }
     return this->logic_map[pos.getX() * width + pos.getY()];
 }
@@ -120,7 +120,7 @@ int Map::tick() {
     return -1;
 }
 
-int Map::hasAimSpawned() const {
+bool Map::hasAimSpawned() const {
     return aim_spawned;
 }
 

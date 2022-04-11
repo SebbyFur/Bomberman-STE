@@ -39,7 +39,7 @@ void System::menu() {
     }
 }
 
-int System::setGame() {
+bool System::setGame() {
     std::string map;
 
     std::cout << "Saisissez le chemin relatif vers le fichier de map : ";
