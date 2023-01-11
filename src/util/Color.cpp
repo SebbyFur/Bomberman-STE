@@ -4,7 +4,7 @@ Color::Color(std::string color) : color(color) {
     //
 }
 
-const Color& Color::getColor(const std::string color) {
+Color& Color::getColor(const std::string color) {
     return Color::colors.at(color);
 }
 
@@ -17,25 +17,45 @@ std::ostream& operator<<(std::ostream& out, const Color& color) {
     return out;
 }
 
-const Color Color::RESET = Color("\033[0m");
-const Color Color::BLACK = Color("\033[30m");
-const Color Color::RED = Color("\033[31m");
-const Color Color::GREEN = Color("\033[32m");
-const Color Color::YELLOW = Color("\033[33m");
-const Color Color::BLUE = Color("\033[34m");
-const Color Color::MAGENTA = Color("\033[35m");
-const Color Color::CYAN = Color("\033[36m");
-const Color Color::WHITE = Color("\033[37m");
-const Color Color::BOLDBLACK = Color("\033[1m\033[30m");
-const Color Color::BOLDRED = Color("\033[1m\033[31m");
-const Color Color::BOLDGREEN = Color("\033[1m\033[32m");
-const Color Color::BOLDYELLOW = Color("\033[1m\033[33m");
-const Color Color::BOLDBLUE = Color("\033[1m\033[34m");
-const Color Color::BOLDMAGENTA = Color("\033[1m\033[35m");
-const Color Color::BOLDCYAN = Color("\033[1m\033[36m");
-const Color Color::BOLDWHITE = Color("\033[1m\033[37m");
+Color Color::RESET = Color("\033[0m");
+Color Color::BLACK = Color("\033[30m");
+Color Color::RED = Color("\033[31m");
+Color Color::GREEN = Color("\033[32m");
+Color Color::YELLOW = Color("\033[33m");
+Color Color::BLUE = Color("\033[34m");
+Color Color::MAGENTA = Color("\033[35m");
+Color Color::CYAN = Color("\033[36m");
+Color Color::WHITE = Color("\033[37m");
+Color Color::BOLDBLACK = Color("\033[1m\033[30m");
+Color Color::BOLDRED = Color("\033[1m\033[31m");
+Color Color::BOLDGREEN = Color("\033[1m\033[32m");
+Color Color::BOLDYELLOW = Color("\033[1m\033[33m");
+Color Color::BOLDBLUE = Color("\033[1m\033[34m");
+Color Color::BOLDMAGENTA = Color("\033[1m\033[35m");
+Color Color::BOLDCYAN = Color("\033[1m\033[36m");
+Color Color::BOLDWHITE = Color("\033[1m\033[37m");
 
-const std::map<const std::string, const Color> Color::colors {
+void Color::noColors() {
+    Color::RESET = Color("");
+    Color::BLACK = Color("");
+    Color::RED = Color("");
+    Color::GREEN = Color("");
+    Color::YELLOW = Color("");
+    Color::BLUE = Color("");
+    Color::MAGENTA = Color("");
+    Color::CYAN = Color("");
+    Color::WHITE = Color("");
+    Color::BOLDBLACK = Color("");
+    Color::BOLDRED = Color("");
+    Color::BOLDGREEN = Color("");
+    Color::BOLDYELLOW = Color("");
+    Color::BOLDBLUE = Color("");
+    Color::BOLDMAGENTA = Color("");
+    Color::BOLDCYAN = Color("");
+    Color::BOLDWHITE = Color("");
+}
+
+const std::map<const std::string, Color&> Color::colors {
     {"RESET", Color::RESET},
     {"BLACK", Color::BLACK},
     {"RED", Color::RED},

@@ -21,9 +21,9 @@
 class ElementDisplay {
     protected:
         const char ch;
-        const Color& color;
+        Color& color;
     public:
-        ElementDisplay(const char ch, const Color& color);
+        ElementDisplay(const char ch, Color& color);
 
         /**
         * @brief Surcharge de l'opérateur de flux sortant

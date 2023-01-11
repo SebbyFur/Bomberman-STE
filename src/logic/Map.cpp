@@ -86,6 +86,8 @@ void Map::minusPlayersLost() {
 
 int Map::tick() {
     if (players.size() == 0) return players_lost;
+
+    std::vector<std::vector<Player*>::iterator> to_del1;
     for (auto it = players.begin(); it != players.end(); it++) {
         int turns = (*it)->getSpeed();
         int del;
@@ -104,17 +106,24 @@ int Map::tick() {
                 std::cout << Color::BOLDRED << "T'es mort" << Color::RESET << std::endl;
             }
             delete *it;
-            players.erase(it);
-            it--;
+            to_del1.push_back(it);
         }
     }
 
+    for (int x = 0; x < to_del1.size(); x++) {
+        players.erase(to_del1.at(x));
+    }
+
+    std::vector<std::vector<Entity*>::iterator> to_del2;
     for (auto it = mobs.begin(); it != mobs.end(); it++) {
         if ((*it)->nextTurn()) {
             delete *it;
-            mobs.erase(it);
-            it--;
+            to_del2.push_back(it);
         }
+    }
+
+    for (int x = 0; x < to_del2.size(); x++) {
+        mobs.erase(to_del2.at(x));
     }
 
     return -1;

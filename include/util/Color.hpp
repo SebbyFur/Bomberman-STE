@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <ostream>
 
 /**
 * @file Color.hpp
@@ -23,25 +24,25 @@ class Color {
         Color(std::string color);
         std::string color;
     public:
-        static const Color RESET;
-        static const Color BLACK;
-        static const Color RED;
-        static const Color GREEN;
-        static const Color YELLOW;
-        static const Color BLUE;
-        static const Color MAGENTA;
-        static const Color CYAN;
-        static const Color WHITE;
-        static const Color BOLDBLACK;
-        static const Color BOLDRED;
-        static const Color BOLDGREEN;
-        static const Color BOLDYELLOW;
-        static const Color BOLDBLUE;
-        static const Color BOLDMAGENTA;
-        static const Color BOLDCYAN;
-        static const Color BOLDWHITE;
+        static Color RESET;
+        static Color BLACK;
+        static Color RED;
+        static Color GREEN;
+        static Color YELLOW;
+        static Color BLUE;
+        static Color MAGENTA;
+        static Color CYAN;
+        static Color WHITE;
+        static Color BOLDBLACK;
+        static Color BOLDRED;
+        static Color BOLDGREEN;
+        static Color BOLDYELLOW;
+        static Color BOLDBLUE;
+        static Color BOLDMAGENTA;
+        static Color BOLDCYAN;
+        static Color BOLDWHITE;
 
-        static const std::map<const std::string, const Color> colors;
+        static const std::map<const std::string, Color&> colors;
 
         /**
         * @brief Méthode statique pour obtenir les couleurs depuis un std::string
@@ -49,7 +50,7 @@ class Color {
         *
         * Renvoie un Color& en fonction du std::string passé en paramètre
         */
-        static const Color& getColor(std::string color);
+        static Color& getColor(std::string color);
 
         /**
         * @brief Méthode pour obtenir un std::string depuis une couleur
@@ -58,6 +59,11 @@ class Color {
         * Renvoie un std::string en fonction de l'objet Color
         */
         std::string getString() const;
+
+        /**
+        * @brief Méthode pour initialiser les couleurs
+        */
+        static void noColors();
 
         /**
         * @brief Surcharge de l'opérateur de flux sortant

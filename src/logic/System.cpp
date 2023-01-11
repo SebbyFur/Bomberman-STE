@@ -9,15 +9,15 @@ void System::menu() {
     while (true) {
         char choice;
 
-        std::cout << Color::BOLDRED << "██████   ██████  ███    ███ ██████  ███████ ██████  ███    ███  █████  ███    ██" << std::endl;
+        std::cout << Color::BOLDRED << "######   ######  ###    ### ######  ####### ######  ###    ###  #####  ###    ##" << std::endl;
         sleep_for(100);
-        std::cout << Color::YELLOW << "██   ██ ██    ██ ████  ████ ██   ██ ██      ██   ██ ████  ████ ██   ██ ████   ██" << std::endl;
+        std::cout << Color::YELLOW << "##   ## ##    ## ####  #### ##   ## ##      ##   ## ####  #### ##   ## ####   ##" << std::endl;
         sleep_for(100);
-        std::cout << Color::GREEN << "██████  ██    ██ ██ ████ ██ ██████  █████   ██████  ██ ████ ██ ███████ ██ ██  ██" << std::endl;
+        std::cout << Color::GREEN << "######  ##    ## ## #### ## ######  #####   ######  ## #### ## ####### ## ##  ##" << std::endl;
         sleep_for(100);
-        std::cout << Color::BLUE << "██   ██ ██    ██ ██  ██  ██ ██   ██ ██      ██   ██ ██  ██  ██ ██   ██ ██  ██ ██ " << std::endl;
+        std::cout << Color::BLUE << "##   ## ##    ## ##  ##  ## ##   ## ##      ##   ## ##  ##  ## ##   ## ##  ## ## " << std::endl;
         sleep_for(100);
-        std::cout << Color::MAGENTA << "██████   ██████  ██      ██ ██████  ███████ ██   ██ ██      ██ ██   ██ ██   ████" << Color::RESET << std::endl;
+        std::cout << Color::MAGENTA << "######   ######  ##      ## ######  ####### ##   ## ##      ## ##   ## ##   ####" << Color::RESET << std::endl;
     
 
         sleep_for(300);

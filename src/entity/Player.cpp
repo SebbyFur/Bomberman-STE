@@ -51,6 +51,7 @@ bool Player::nextTurn() {
         delete item;
     }
 
+    std::vector<Belonging*> to_del;
     for (auto it = belongings.begin(); it != belongings.end(); it++) {
         Bomb* bomb = dynamic_cast<Bomb*>(*it);
         if (control_bombs) {
@@ -61,9 +62,12 @@ bool Player::nextTurn() {
 
         if ((*it)->nextTurn() == 1) {
             delete *it;
-            belongings.erase(it);
-            it--;
+            to_del.push_back(*it);
         }
+    }
+
+    for (auto it = to_del.begin(); it != to_del.end(); it++) {
+        belongings.erase(std::remove(belongings.begin(), belongings.end(), *it), belongings.end());
     }
 
     if (typeid(*(tile->getSquare())) == typeid(Aim) && tile->getMap()->getMobsLeft() == 0) {

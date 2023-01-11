@@ -16,18 +16,18 @@ void Game::startGame() {
     
     if (!status) {
         std::cout << Color::GREEN;
-        std::cout << "██████  ██████   █████  ██    ██  ██████  ██" << std::endl;
-        std::cout << "██   ██ ██   ██ ██   ██ ██    ██ ██    ██ ██" << std::endl;
-        std::cout << "██████  ██████  ███████ ██    ██ ██    ██ ██" << std::endl;
-        std::cout << "██   ██ ██   ██ ██   ██  ██  ██  ██    ██   " << std::endl;
-        std::cout << "██████  ██   ██ ██   ██   ████    ██████  ██\n" << Color::RESET << std::endl;
+        std::cout << "######  ######   #####  ##    ##  ######  ##" << std::endl;
+        std::cout << "##   ## ##   ## ##   ## ##    ## ##    ## ##" << std::endl;
+        std::cout << "######  ######  ####### ##    ## ##    ## ##" << std::endl;
+        std::cout << "##   ## ##   ## ##   ##  ##  ##  ##    ##   " << std::endl;
+        std::cout << "######  ##   ## ##   ##   ####    ######  ##\n" << Color::RESET << std::endl;
     } else {
         std::cout << Color::RED;
-        std::cout << "██       ██████  ███████ ███████ ██████  ██" << std::endl;
-        std::cout << "██      ██    ██ ██      ██      ██   ██ ██" << std::endl;
-        std::cout << "██      ██    ██ ███████ █████   ██████  ██" << std::endl;
-        std::cout << "██      ██    ██      ██ ██      ██   ██   " << std::endl;
-        std::cout << "███████  ██████  ███████ ███████ ██   ██ ██\n" << Color::RESET << std::endl;
+        std::cout << "##       ######  ####### ####### ######  ##" << std::endl;
+        std::cout << "##      ##    ## ##      ##      ##   ## ##" << std::endl;
+        std::cout << "##      ##    ## ####### #####   ######  ##" << std::endl;
+        std::cout << "##      ##    ##      ## ##      ##   ##   " << std::endl;
+        std::cout << "#######  ######  ####### ####### ##   ## ##\n" << Color::RESET << std::endl;
     }
 
     sleep_for(2000);

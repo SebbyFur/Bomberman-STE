@@ -1,7 +1,7 @@
 #include "element/ElementDisplay.hpp"
 #include <iostream>
 
-ElementDisplay::ElementDisplay(const char ch, const Color& color) : ch(ch), color(color) {
+ElementDisplay::ElementDisplay(const char ch, Color& color) : ch(ch), color(color) {
     //
 }
 
